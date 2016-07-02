@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Card App</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#submitButton').click(function(event){
+
+				var firstname = $("#first_name").val();
+				var lastname = $("#last_name").val();
+				var $container = $("#right_side");
+				var iteration = $container.children().length + 1;
+				$container.append('<div id="new_box' + iteration + '" class="dynamic"></div>');
+
+				$("#new_box"+iteration).append("<div><h2>" + firstname + " " + lastname + "</h2><p>Click for Description</p></div>");
+				return false;
+
+				
+				$('#new_box').on("click", function(){
+                	console.log("maybe");
+             	})
+				
+			});
+		});
+	</script>
+
+	
+</head>
+<body>
+
+	<div id="container">
+		<div id="left_side">
+			<form id="only_form">
+				<p>First name:</p>
+				<p><input type="text" name="first_name" id="first_name"></p>
+				<p>Last name:</p>
+				<p><input type="text" name="last_name" id="last_name"></p>
+				<p>Description:</p>
+			</form>
+
+			<p><textarea form="only_form" id="description" rows="4" cols="30"></textarea></p> 
+			<form>
+				<p><input type="submit" name="submit" id="submitButton"></p>
+			</form>
+
+		</div>
+		<div id="right_side">
+			<div id="new_box" class="dynamic"><h2>Michael Choi</h2><p>Click for Description</p></div>
+			<div id="new_box1" class="dynamic"><h2>Other Testname</h2><p>Click for Description</p></div>
+		</div>
+
+	</div>
+
+</body>
+</html>
